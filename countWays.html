@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <p id="test"></p>
+<script>
+    
+    function waysToSplit(s) {
+        const n = s.length;
+        let count = 0;
+
+        for ( let i = 1; i < n - 1; i++) {
+            for ( let j =  i + 1; j < n ; j++) {
+                const a = s.slice(0, i);
+                const b = s.slice(i, j);
+                const c = s.slice(j);
+
+                const ab = a + b;
+                const bc = b + c;
+                const ca = c + a;
+
+                if (ab !== bc && bc !== ca && ca !== ab) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    const s = "xzxzx";
+    console.log(waysToSplit(s));
+
+</script>
+</body>
+</html>
