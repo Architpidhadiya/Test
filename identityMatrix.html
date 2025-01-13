@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <p id="test"></p>
+
+        <script>
+
+            
+
+            function identityMatrix(matrix) {
+                const rows = matrix.length;
+                const cols = matrix[0].length;
+
+                if ( rows !== cols) {
+                    return false;
+                }
+
+                for ( let i = 0; i < rows; i++) {
+                    for ( let j = 0; j < cols; j++) {
+                        if ( (i === j && matrix[i][j] !== 1) || (i !== j && matrix[i][j] !== 0)) {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            const matrix1 = [
+                [1, 0, 0],
+                [0, 1, 0],
+                [0, 1, 1]
+            ];
+
+            console.log(identityMatrix(matrix1));
+        </script>
+    </body>
+</html>
