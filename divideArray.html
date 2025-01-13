@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function divideArray(a) {
+                const freq = new Map();
+
+                for ( const num of a) {
+                    freq.set(num, (freq.get(num) || 0) + 1);
+                }
+                for ( const [num, count] of freq)
+                {
+                    if (count > 2)
+                    {
+                        return [];
+                    }
+                } 
+                const arr1 = [];
+                const arr2 = [];
+
+                for ( const [num, count] of freq)
+                {
+                    if (count === 2) {
+                        arr1.push(num);
+                        arr2.push(num);
+                    } else if (count === 1) {
+                        if( arr1.length <= arr2.length) {
+                            arr1.push(num);
+                        } else {
+                            arr2.push(num);
+                        }
+                    }
+                }
+
+                if (arr1.length !== arr2.length) {
+                    return [];
+                }
+
+                return [arr1, arr2];
+            }
+
+        //console.log(divideArray([1, 2, 3, 2, 1, 3]));
+
+        const input = prompt("Enter array");
+    
+        if ( input ) {
+            const a = input.split(",").map(Number);
+            const result = divideArray(a);
+
+            if (result.length === 0) {
+                console.log("Invalid");
+            } else {
+                console.log(result[0]);
+                console.log(result[1]);
+            }
+        } else {
+            console.log("Error");
+        }
+        </script>
+    </body>
+</html>
