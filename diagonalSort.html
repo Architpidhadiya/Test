@@ -2,22 +2,57 @@
     <body>
         <script>
 
-            function diagonalSort(matrix) {
-            const rows = matrix.length;
-            const cols = matrix[0].length;
 
-            console.log(rows);
-            console.log(cols);
+    function diagonalSort(matrix) {
+        
+
+        for ( i = 0; i < rows; i++) {
+            document.write(matrix1[i][0] + " ");
+
+            let j = i - 1;
+            let k = 1;
+
+            while ( isValid ( j, k)) {
+                document.write(matrix1[j][k] + " ");
+                j--;
+                k++;
+            }
+            document.write("<br>");
         }
 
-        const matrix1 = [
-            [1, 3, 9, 4],
-            [9, 5, 7, 7],
-            [3, 6, 9, 7],
-            [1, 2, 2, 2]
-        ];
 
-        console.log(diagonalSort(matrix1));
-        </script>
+        for ( i = 1; i < cols; i++) {
+            document.write(matrix1[rows-1][i] + " ");
+
+            let j = rows - 2;
+            let k = i + 1;
+            while( isValid (j, k)) {
+                document.write(matrix1[j][k] + " ");
+                j--;
+                k++;
+            }
+            document.write("<br>");
+        }
+    }
+
+    function isValid( j, k) {
+        if ( j < 0 || j >= rows || k < 0 || k >= cols)
+            return false;
+        return true;
+    }
+
+    
+    const matrix1 = [
+        [1, 3, 9, 4],
+        [9, 5, 7, 7],
+        [3, 6, 9, 7],
+        [1, 2, 2, 2]
+    ];
+
+    const rows = matrix1.length;
+    const cols = matrix1[0].length;
+
+    console.log(diagonalSort(matrix1));
+    </script>
     </body>
 </html>
