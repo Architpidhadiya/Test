@@ -2,7 +2,6 @@
 <html>
 <body>
     
-    <p id="test"></p>
 <script>
     
     function waysToSplit(s) {
@@ -31,14 +30,8 @@
     //console.log(waysToSplit(s));
 
     const s = prompt("Enter String: ");
-    if( s && s.length >= 0) {
-        const result = waysToSplit(s);
-        console.log(result);
-    }
-    else {
-        console.log("Error");
-    }
-
+    const result = waysToSplit(s);
+    console.log(result);
 </script>
 </body>
 </html>
